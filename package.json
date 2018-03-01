@@ -1,0 +1,80 @@
+{
+  "name": "safe-money",
+  "version": "0.1.0",
+  "description": "Lightweight implementation of Martin Fowlers Money pattern",
+  "main": "dist/safe-money.js",
+  "module": "dist/safe-money-es.js",
+  "browser": "dist/safe-money-browser.js",
+  "scripts": {
+    "prelint": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma none --write \"lib/**/*.js\" --write \"test/**/*.js\"  --write rollup.config.js",
+    "lint": "xo --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage",
+    "coveralls": "npm run coverage && cat coverage/lcov.info | coveralls",
+    "build": "rollup -c",
+    "precommit": "npm run docs && git add README.md && npm run lint && npm test && npm run build",
+    "prepublish": "npm run precommit",
+    "docs": "documentation readme lib/not-pwned.js --section API -q",
+    "cm": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiamsantos/safe-money.git"
+  },
+  "keywords": [
+    "money",
+    "currency",
+    "utilities",
+    "accounting",
+    "martin",
+    "fowler"
+  ],
+  "author": "Thiago Santos",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/thiamsantos/safe-money/issues"
+  },
+  "homepage": "https://github.com/thiamsantos/safe-money#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "commitizen": "^2.9.6",
+    "coveralls": "^3.0.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "documentation": "^5.4.0",
+    "husky": "^0.14.3",
+    "jest": "^22.4.2",
+    "prettier": "^1.11.1",
+    "rollup": "^0.56.3",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-filesize": "^1.5.0",
+    "rollup-plugin-uglify": "^3.0.0",
+    "xo": "^0.20.3"
+  },
+  "xo": {
+    "envs": [
+      "browser",
+      "jest"
+    ],
+    "space": true,
+    "semicolon": false
+  },
+  "types": "./index.d.ts",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "bracketSpacing": false,
+    "trailingComma": "none"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
