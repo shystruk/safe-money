@@ -31,7 +31,7 @@ export default [
       {
         file: 'dist/safe-money-browser.js',
         format: 'umd',
-        name: 'SafeMoney'
+        name: 'safeMoney'
       }
     ]
   },
@@ -41,7 +41,7 @@ export default [
     output: {
       file: 'dist/safe-money-browser.min.js',
       format: 'umd',
-      name: 'SafeMoney'
+      name: 'safeMoney'
     }
   }
 ]
